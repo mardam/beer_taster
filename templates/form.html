@@ -1,0 +1,59 @@
+<html>
+  <body>
+
+    <script>
+     function updateTextInput(val) {
+          document.getElementById('textInput').value=val; 
+     }
+     </script>
+    <h1>Hallo {{name}}</h1>
+
+    <form action = "http://192.168.178.28:5000/send_data" method = "post">
+      <p><input type="text" name="name" value="{{name}}" /></p>
+      <p><input type="number" name="beer_number" value="{{beer_number}}" /></p>
+      <p>
+        Farbe:
+        <input type="range" name="colour" min="0" max="10" value="0" step=1 oninput="this.form.colourInput.value=this.value" />
+        <input type="number" name="colourInput" min="0" max="10" value="0" step=1 oninput="this.form.colour.value=this.value" />
+      </p>
+      <p>
+        Schaum:
+        <input type="range" name="foam" min="0" max="10" value="0" step=1 oninput="this.form.foamInput.value=this.value" />
+        <input type="number" name="foamInput" min="0" max="10" value="0" step=1 oninput="this.form.foam.value=this.value" />
+      </p>
+      <p>
+        Geschmack:
+        <input type="range" name="taste" min="0" max="10" value="0" step=1 oninput="this.form.tasteInput.value=this.value" />
+        <input type="number" name="tasteInput" min="0" max="10" value="0" step=1 oninput="this.form.taste.value=this.value" />
+      </p>
+      <p>
+        Nachgeschmack:
+        <input type="range" name="posttaste" min="0" max="10" value="0" step=1 oninput="this.form.posttasteInput.value=this.value" />
+        <input type="number" name="posttasteInput" min="0" max="10" value="0" step=1 oninput="this.form.posttaste.value=this.value" />
+      </p>
+      <p>
+        Flasche:
+        <input type="range" name="bottle" min="0" max="10" value="0" step=1 oninput="this.form.bottleInput.value=this.value" />
+        <input type="number" name="bottleInput" min="0" max="10" value="0" step=1 oninput="this.form.bottle.value=this.value" />
+      </p>
+
+      {% if name == "Markus" %}
+        <hr />
+      <p>
+        Name:
+        <input type="text" name = "beer_name" />
+      </p>
+
+      <p>
+        Biermarke:
+        <input type="text" name = "beer_brand" />
+      </p>
+      <p>
+        Typ:
+        <input type="text" name = "beer_type" />
+      </p>
+      {% endif %}
+      <p><input type = "submit" value = "Abschicken" /></p>
+    </form>
+  </body>
+</html>
